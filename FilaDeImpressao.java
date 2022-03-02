@@ -85,5 +85,10 @@ class FilaDeImpressao {
       criaImpressao.start();
       Thread realizaImpressao = new RealizaImpressao(1, fila);
       realizaImpressao.start();
+     
+      try {
+         realizaImpressao.join();
+         criaImpressao.join();
+      } catch(Exception e) { }
    }
 }
